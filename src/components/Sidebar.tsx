@@ -10,7 +10,7 @@ import {
 
 type Page = 'dashboard' | 'employees' | 'departments' | 'onboarding' | 'leaves' | 'attendance' | 'payroll' | 'holidays'
   | 'crm-dashboard' | 'contacts' | 'deals' | 'finance-dashboard' | 'invoices' | 'expenses' | 'reports'
-  | 'news' | 'tickets' | 'ticket-create' | 'meeting-rooms' | 'room-bookings';
+  | 'news' | 'tickets' | 'ticket-create' | 'meeting-rooms' | 'room-bookings' | 'room-manage' | 'room-bookings-history';
 
 interface SidebarProps {
   currentPage: Page;
@@ -68,7 +68,11 @@ const menuStructure = [
     items: [
       { id: 'news' as Page, label: 'Tin tuc noi bo', icon: Newspaper },
       { id: 'tickets' as Page, label: 'Ticket System', icon: Ticket },
-      { id: 'meeting-rooms' as Page, label: 'Dat phong hop', icon: DoorOpen },
+      { id: 'meeting-rooms' as Page, label: 'Phong hop', icon: DoorOpen, submenu: [
+        { id: 'room-bookings' as Page, label: 'Dat phong hop' },
+        { id: 'room-manage' as Page, label: 'Quan ly phong' },
+        { id: 'room-bookings-history' as Page, label: 'Lich su dat phong' },
+      ]},
     ],
   },
 ];
